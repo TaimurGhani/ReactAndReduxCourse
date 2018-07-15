@@ -1,4 +1,5 @@
-/* @flow */
+// @flow
+// @format
 
 import React, { Component } from 'react';
 import {
@@ -7,18 +8,17 @@ import {
 import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
 
-class AlbumList extends Component {
+export default class AlbumList extends Component {
   state = { albums: [] };
 
-  componentWillMount() {
+  componentDidMount() {
     axios.get('https://rallycoding.herokuapp.com/api/music_albums')
-      .then(response => this.setState({ albums: response.data }));
+      .then((response) => this.setState({ albums: response.data }));
   }
 
   renderAlbums() {
-    return this.state.albums.map(album =>
-      <AlbumDetail key={album.title} album={album} />
-    );
+    return this.state.albums.map((album) =>
+      <AlbumDetail key={album.title} album={album} />);
   }
 
   render() {
@@ -29,6 +29,3 @@ class AlbumList extends Component {
     );
   }
 }
-
-
-export default AlbumList;

@@ -3,9 +3,9 @@
 import React from 'react';
 import {
   Text,
-  StyleSheet,
-  Image,
   View,
+  Image,
+  StyleSheet,
   Linking
 } from 'react-native';
 import Card from './Card';
@@ -13,27 +13,27 @@ import CardSection from './CardSection';
 import Button from './Button';
 
 const AlbumDetail = ({ album }) => {
-  const { title, artist, thumbnail_image, image, url } = album;
-  const { thumbnail, textContainer, thumbnailContainer, albumNameText, albumImage } = styles;
-
+  const { url, title, artist, thumbnail_image, image } = album;
+  const { imageStyle, headerContentStyle, thumbnailStyle,
+          thumbnailContainerStyle, headerTextStyle } = styles;
   return (
     <Card>
       <CardSection>
-        <View style={thumbnailContainer}>
+        <View style={thumbnailContainerStyle}>
           <Image
-            style={thumbnail}
+            style={thumbnailStyle}
             source={{ uri: thumbnail_image }}
           />
         </View>
-        <View style={textContainer}>
-          <Text style={albumNameText}>{title}</Text>
+        <View style={headerContentStyle}>
+          <Text style={headerTextStyle}>{title}</Text>
           <Text>{artist}</Text>
         </View>
       </CardSection>
 
       <CardSection>
         <Image
-          style={albumImage}
+          style={imageStyle}
           source={{ uri: image }}
         />
       </CardSection>
@@ -47,27 +47,28 @@ const AlbumDetail = ({ album }) => {
   );
 };
 
+export default AlbumDetail;
+
 const styles = StyleSheet.create({
-  textContainer: {
-    justifyContent: 'space-around',
+  headerContentStyle: {
+    justifyContent: 'space-around'
   },
-  albumNameText: {
+  headerTextStyle: {
     fontSize: 18
   },
-  thumbnail: {
+  thumbnailStyle: {
     height: 50,
     width: 50
   },
-  thumbnailContainer: {
+  thumbnailContainerStyle: {
     justifyContent: 'center',
     alignItems: 'center',
     marginLeft: 10,
     marginRight: 10
   },
-  albumImage: {
+  imageStyle: {
     height: 300,
     flex: 1,
     width: null
   }
 });
-export default AlbumDetail;

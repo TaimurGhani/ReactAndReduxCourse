@@ -7,21 +7,21 @@ import {
 } from 'react-native';
 
 const CardSection = (props) => (
-  <View style={styles.container}>
+  <View style={styles.containerStyle}>
     {props.children}
   </View>
 );
 
+export default CardSection;
+
 const styles = StyleSheet.create({
-  container: {
+  containerStyle: {
     borderBottomWidth: 1,
-    borderColor: '#ddd',
     padding: 5,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF',
     justifyContent: 'flex-start',
     flexDirection: 'row',
+    borderColor: '#DDD',
     position: 'relative'
   },
 });
-
-export default CardSection;

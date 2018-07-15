@@ -7,17 +7,17 @@ import {
   StyleSheet,
 } from 'react-native';
 
-class App extends Component {
+ class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>I'm the MyComponent component</Text>
+        <Text>I'm the App component</Text>
       </View>
     );
   }
 }
 
-export default App
+export default App;
 
 const styles = StyleSheet.create({
   container: {
